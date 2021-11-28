@@ -1,38 +1,82 @@
-.App {
-  text-align: center;
+.avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.message {
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.message.sent {
+  flex-direction: row-reverse;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.content {
+  background: #011638;
+  padding: .6rem;
+  border-radius: 1rem;
+  margin: .6rem;
+}
+
+#send_button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.main {
+  margin: auto;
+  background-color: #023E8A !important;
+  max-width: 70ch;
+  justify-content: space-between;
+  position: relative;
+  min-height: 87vh;
+}
+
+.main__messageLine {
+  color: #fff;
+  margin: 5vh 0 8vh 0;
+  padding: 0 25px;
+}
+
+.formStack {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputField {
+  width: 100%;
+}
+
+#send_button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.topbar,
+.messageWriter {
+  position: fixed;
+  width: 100%;
+  max-width: 70ch;
+}
+
+.topbar {
+  height: 5vh;
+  min-height: 50px;
+  top: 0;
+  background: #0077B6;
+}
+
+.messageWriter {
+  height: 8vh;
+  min-height: 80px;
+  bottom: 0;
+  background: #0077B6;
+  padding: 10px;
 }
