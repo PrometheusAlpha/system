@@ -9,7 +9,7 @@ function ChatMessage(props: any) {
   const messageClass = uid === auth.currentUser?.uid ? 'sent' : 'received';
 
   return (<>
-    {text && <Stack className={`message ${messageClass}`} direction="row">
+    {text && <Stack className={`message ${messageClass}`} direction="row" spacing={1}>
       <img src={photoURL || avatar} alt="avatar" className="avatar" />
       <p className="content">{text}</p>
     </Stack>}

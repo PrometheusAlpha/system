@@ -5,12 +5,13 @@
 }
 
 * {
-  box-sizing: border-box;
+  box-sizing: border-box !important;
 }
 
 .message {
   align-items: center;
-  gap: 1rem;
+  gap: .75rem;
+  margin: 1rem 0;
 }
 
 .message.sent {
@@ -32,22 +33,20 @@
 
 .main {
   margin: auto;
-  background-color: #023E8A !important;
+  background-color: #032174 !important;
   max-width: 70ch;
   justify-content: space-between;
   position: relative;
   min-height: 87vh;
+  display: flex;
+  margin-top: 5vh;
+  flex-direction: column-reverse;
 }
 
 .main__messageLine {
   color: #fff;
-  margin: 5vh 0 8vh 0;
+  margin-bottom: 8vh;
   padding: 0 25px;
-}
-
-.formStack {
-  display: flex;
-  justify-content: space-between;
 }
 
 .inputField {
@@ -64,19 +63,36 @@
   position: fixed;
   width: 100%;
   max-width: 70ch;
+  background: #023E8A;
 }
 
 .topbar {
   height: 5vh;
   min-height: 50px;
   top: 0;
-  background: #0077B6;
+  padding: 0 10px;
 }
 
 .messageWriter {
-  height: 8vh;
+  height: 6vh;
   min-height: 80px;
   bottom: 0;
-  background: #0077B6;
   padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+#profilePic {
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+}
+
+input {
+  padding: 1.5rem 1rem !important;
+}
+
+.btn {
+  width: 20ch;
+  padding: 20px !important;
 }

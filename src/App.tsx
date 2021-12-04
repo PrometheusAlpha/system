@@ -1,4 +1,3 @@
-// import './App.css';
 import Signup from "./components/Signup";
 import { AuthProvider } from "./context/AuthContext";
 import { createTheme, ThemeProvider } from "@mui/material";
@@ -16,21 +15,19 @@ const darkTheme = createTheme({
   typography: {
     fontFamily: [
       'SF Pro Text',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
       'sans-serif',
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
     ].join(','),
+    h1: {
+      color: "#fff",
+    },
     h2: {
       color: "#fff",
     }
   }
 });
-
 
 function App() {
   const [user] = useAuthState(auth);
@@ -40,10 +37,10 @@ function App() {
       <Router>
         <AuthProvider >
           <Routes>
-            <Route path="/" element={user ? <ChatBox /> : <Navigate to="/login" />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/profile" element={user ? <Profile /> : <Navigate to="/login" />} />
+            <Route path="/" element={user ? <ChatBox /> : <Navigate to="/login" />} />
             <Route path="/*" element={user ? <Navigate to="/" /> : <Navigate to="/login" />} />
           </Routes>
         </AuthProvider>

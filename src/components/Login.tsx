@@ -1,4 +1,4 @@
-import { Box, Button, Card, Stack, TextField, Typography } from '@mui/material';
+import { Box, Button, Card, Stack, TextField, Typography } from '@mui/material'
 import { useRef, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
@@ -42,11 +42,13 @@ const Login = (props: any) => {
     <Box style={{ minWidth: "100vw", minHeight: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
       <Card style={{ width: "500px", padding: "40px", background: "#001e3c" }}>
         <Typography variant="h2" align="center" fontWeight="medium">Log in</Typography>
-        <Stack spacing={5}>
-          <p style={{ background: "#ff9b9b", color: "#ff0000", opacity: error === "" ? "0" : "1", minHeight: "1.25rem", padding: "1rem", borderRadius: "10px" }}>{error}</p>
+        <Stack spacing={5} style={{ alignItems: "center" }}>
+          <p style={{ background: "#ff9b9b", color: "#ff0000", opacity: error === "" ? "0" : "1", padding: "1rem", borderRadius: "10px" }}>
+            {error !== "" ? error : "none"}
+          </p>
           <TextField label="E-mail" inputRef={userRef} required />
           <TextField label="Password" inputRef={passRef} onChange={checkConfirm} type="password" required />
-          <Button disabled={!valid} onClick={handleSubmit}>Log In</Button>
+          <Button disabled={!valid} onClick={handleSubmit} className="btn" >Log In</Button>
           <div>New here ? <Link to="/signup" style={{ textDecoration: "none", color: "#42a5f5" }}>Signup</Link></div>
         </Stack>
       </Card>

@@ -33,24 +33,30 @@ const Signup = (props: any) => {
     const repeatPass = repeatPassRef.current?.value;
     if (pass && pass.length < 8) {
       setError("Password must be at least 8 characters.");
+      setValid(false);
+    }
+    else if (pass !== repeatPass) {
+      setError("Passwords do not match.");
+      setValid(false);
     }
     else {
       setError("");
+      setValid(true);
     }
-    // @ts-ignore: Object is possibly 'null'.
-    setValid(pass === repeatPass && pass!.match(/^[a-zA-Z0-9_-]{6,}$/g)?.length);
   };
 
   return (
     <Box style={{ minWidth: "100vw", minHeight: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
       <Card style={{ width: "500px", padding: "40px", background: "#001e3c" }}>
         <Typography variant="h2" align="center" fontWeight="medium">Sign up</Typography>
-        <Stack spacing={5}>
-          <p style={{ background: "#ff9b9b", color: "#ff0000", opacity: error === "" ? "0" : "1", minHeight: "1.25rem", padding: "1rem", borderRadius: "10px" }}>{error}</p>
+        <Stack spacing={5} style={{ alignItems: "center" }}>
+          <p style={{ background: "#ff9b9b", color: "#ff0000", opacity: error === "" ? "0" : "1", padding: "1rem", borderRadius: "10px" }}>
+            {error !== "" ? error : "none"}
+          </p>
           <TextField label="E-mail" inputRef={userRef} required />
           <TextField label="Password" inputRef={passRef} onChange={checkConfirm} type="password" required />
           <TextField label="Confirm Password" inputRef={repeatPassRef} onChange={checkConfirm} type="password" required />
-          <Button disabled={!valid} onClick={handleSubmit}>Sign up</Button>
+          <Button disabled={!valid} onClick={handleSubmit} className="btn">Sign up</Button>
           <div>
             Already got an account ? <Link to="/login" style={{ textDecoration: "none", color: "#42a5f5" }}>Log in</Link>
           </div>

@@ -36,9 +36,9 @@ export default function ChatBox() {
 
   return (<>
     <Box className="main">
-      <Stack className="topbar" direction="row">
+      <Stack className="topbar" direction="row" sx={{ alignItems: "center" }}>
         <Button onClick={() => auth.signOut()}>Sign out</Button>
-        <Link to="/profile"><img src={photoURL || avatar} className="avatar" /></Link>
+        <Link to="/profile"><img src={photoURL || avatar} className="avatar" alt="profile" /></Link>
       </Stack>
       <div className="main__messageLine">
         <main>
@@ -47,12 +47,10 @@ export default function ChatBox() {
         </main>
       </div>
       <form onSubmit={sendMessage} className="messageWriter">
-        <Stack direction="row" sx={{ alignItems: "columns" }} spacing={2} className="formStack">
-          <TextField value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Aa" className="inputField" />
-          <button type="submit" id="send_button" disabled={!formValue} >
-            <SendIcon sx={{ fontSize: "2.5rem" }} />
-          </button>
-        </Stack>
+        <TextField value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Aa" className="inputField" />
+        <button type="submit" id="send_button" disabled={!formValue} >
+          <SendIcon sx={{ fontSize: "2.5rem" }} />
+        </button>
       </form>
     </Box>
   </>)
