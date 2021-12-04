@@ -1,5 +1,6 @@
-# Getting Started with Create React App
+# React-Firebase Chat App
 
+Link to the working website: [React-Firebase chat app](https://system-dev-6a133.web.app/login)
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
